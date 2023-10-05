@@ -1,10 +1,9 @@
 import debug from "debug";
-import NewOrderPage from "../NewOrderPage/NewOrderPage";
-import AuthPage from "../AuthPage/AuthPage";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
+import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
+import NotesPage from "../NotesPage/NotesPage";
 
 const log = debug("mern:src:App");
 localStorage.debug = "mern:*";
@@ -22,8 +21,7 @@ export default function App() {
 				<>
 					<NavBar user={user} setUser={updateUser} />
 					<Routes>
-						<Route path="/orders/new" element={<NewOrderPage />} />
-						<Route path="/orders" element={<OrderHistoryPage />} />
+						<Route path="/" element={<NotesPage />} />
 					</Routes>
 				</>
 			) : (

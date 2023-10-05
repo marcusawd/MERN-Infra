@@ -6,8 +6,9 @@ const path = require("path");
 const logger = require("morgan");
 const debug = require("debug")("mern:server");
 
-const usersRouter = require("./routes/api/usersRoutes");
 const checkTokenMiddleware = require("./config/checkToken");
+const usersRouter = require("./routes/api/usersRoutes");
+const notesRouter = require("./routes/api/notesRoutes");
 
 //* app
 const app = express();
@@ -21,6 +22,7 @@ app.use(checkTokenMiddleware);
 
 //* routes
 app.use("/api/users", usersRouter);
+app.use("/api/notes", notesRouter);
 
 //? Catch all routes
 app.get("/*", (req, res) => {
